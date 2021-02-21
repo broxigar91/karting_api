@@ -43,9 +43,15 @@ class Pilot
      */
     private $raceLaps;
 
+    /**
+     * @ORM\OneToMany(targetEntity=PilotRaceResults::class, mappedBy="pilot")
+     */
+    private $pilotRaceResults;
+
     public function __construct()
     {
         $this->raceLaps = new ArrayCollection();
+        $this->pilotRaceResults = new ArrayCollection();
     }
 
     public function getId(): ?string
@@ -132,6 +138,36 @@ class Pilot
             // set the owning side to null (unless already changed)
             if ($raceLap->getPilot() === $this) {
                 $raceLap->setPilot(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection|PilotRaceResults[]
+     */
+    public function getPilotRaceResults(): Collection
+    {
+        return $this->pilotRaceResults;
+    }
+
+    public function addPilotRaceResult(PilotRaceResults $pilotRaceResult): self
+    {
+        if (!$this->pilotRaceResults->contains($pilotRaceResult)) {
+            $this->pilotRaceResults[] = $pilotRaceResult;
+            $pilotRaceResult->setPilot($this);
+        }
+
+        return $this;
+    }
+
+    public function removePilotRaceResult(PilotRaceResults $pilotRaceResult): self
+    {
+        if ($this->pilotRaceResults->removeElement($pilotRaceResult)) {
+            // set the owning side to null (unless already changed)
+            if ($pilotRaceResult->getPilot() === $this) {
+                $pilotRaceResult->setPilot(null);
             }
         }
 

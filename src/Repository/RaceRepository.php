@@ -22,6 +22,16 @@ class RaceRepository extends ServiceEntityRepository
     // /**
     //  * @return Race[] Returns an array of Race objects
     //  */
+    public function getAll(){
+        return $this->createQueryBuilder('p')
+        ->orderBy('p.id','ASC')
+        ->getQuery()
+        ->getResult();
+    }
+
+    // /**
+    //  * @return Race[] Returns an array of Race objects
+    //  */
     /*
     public function findByExampleField($value)
     {

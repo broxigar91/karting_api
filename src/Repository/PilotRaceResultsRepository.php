@@ -2,36 +2,25 @@
 
 namespace App\Repository;
 
-use App\Entity\Pilot;
+use App\Entity\PilotRaceResults;
 use Doctrine\Bundle\DoctrineBundle\Repository\ServiceEntityRepository;
 use Doctrine\Persistence\ManagerRegistry;
 
 /**
- * @method Pilot|null find($id, $lockMode = null, $lockVersion = null)
- * @method Pilot|null findOneBy(array $criteria, array $orderBy = null)
- * @method Pilot[]    findAll()
- * @method Pilot[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
+ * @method PilotRaceResults|null find($id, $lockMode = null, $lockVersion = null)
+ * @method PilotRaceResults|null findOneBy(array $criteria, array $orderBy = null)
+ * @method PilotRaceResults[]    findAll()
+ * @method PilotRaceResults[]    findBy(array $criteria, array $orderBy = null, $limit = null, $offset = null)
  */
-class PilotRepository extends ServiceEntityRepository
+class PilotRaceResultsRepository extends ServiceEntityRepository
 {
     public function __construct(ManagerRegistry $registry)
     {
-        parent::__construct($registry, Pilot::class);
+        parent::__construct($registry, PilotRaceResults::class);
     }
 
     // /**
-    //  * @return Pilot[] Returns an array of Pilot objects
-    //  */
-    
-    public function getAll(){
-        return $this->createQueryBuilder('p')
-        ->orderBy('p.id','ASC')
-        ->getQuery()
-        ->getResult();
-    }
-
-    // /**
-    //  * @return Pilot[] Returns an array of Pilot objects
+    //  * @return PilotRaceResults[] Returns an array of PilotRaceResults objects
     //  */
     /*
     public function findByExampleField($value)
@@ -48,7 +37,7 @@ class PilotRepository extends ServiceEntityRepository
     */
 
     /*
-    public function findOneBySomeField($value): ?Pilot
+    public function findOneBySomeField($value): ?PilotRaceResults
     {
         return $this->createQueryBuilder('p')
             ->andWhere('p.exampleField = :val')

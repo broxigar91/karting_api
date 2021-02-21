@@ -34,8 +34,9 @@ class PilotRaceLapController extends AbstractController
     {   
         // $p = $this->pilotRaceLapRepository->findOneBy(["pilot" => $id]);
         // $p = $this->pilotRaceLapRepository->getPilotBestLapInRace($id,1);
-        $p = $this->pilotRaceLapRepository->getPilotTotalTimeInRace($id,1);
+        $p = $this->pilotRaceLapRepository->getRaceClassification(1);
         
+        var_dump($p);
         
         return $this->json([
             'best_lap' => $p

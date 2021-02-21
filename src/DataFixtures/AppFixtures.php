@@ -4,6 +4,7 @@ namespace App\DataFixtures;
 
 use App\Entity\Pilot;
 use App\Entity\PilotRaceLap;
+use App\Entity\PilotRaceResults;
 use App\Entity\Race;
 use Doctrine\Bundle\FixturesBundle\Fixture;
 use Doctrine\Common\Collections\ArrayCollection;
@@ -65,6 +66,5 @@ class AppFixtures extends Fixture
         }
 
         $manager->flush();
-
     }
 }

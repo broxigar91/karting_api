@@ -51,7 +51,7 @@ class PilotRaceLapRepository extends ServiceEntityRepository
         ->orderBy('best_lap')
         ->groupBy('q.pilot')
         ->setParameter('race',$race_id)
-        ->select('p.name,SUM(TIME(q.time)) as total_time, MIN(q.time) as best_lap')
+        ->select('p.id as pilot,SUM(TIME(q.time)) as total_time, MIN(q.time) as best_lap')
         ->getQuery()
         ->getResult();
     }
