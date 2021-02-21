@@ -33,14 +33,27 @@ class PilotRaceLapRepository extends ServiceEntityRepository
 
     public function getPilotTotalTimeInRace($pilot_id,$race_id)
     {
-        // return $this->createQueryBuilder('p')
-        // ->andWhere('p.pilot = :pilot')
-        // ->andWhere('p.race = :race')
-        // ->setParameter('pilot',$pilot_id)
-        // ->setParameter('race',$race_id)
-        // ->select('SUM(p.time) as total_time')
-        // ->getQuery()
-        // ->getSingleScalarResult();
+        return $this->createQueryBuilder('p')
+        ->andWhere('p.pilot = :pilot')
+        ->andWhere('p.race = :race')
+        ->setParameter('pilot',$pilot_id)
+        ->setParameter('race',$race_id)
+        ->select('SUM(TIME(p.time)) as total_time')
+        ->getQuery()
+        ->getSingleScalarResult();
+    }
+
+    public function getRaceClassification($race_id)
+    {
+        return $this->createQueryBuilder('q')
+        ->andWhere('q.race = :race')
+        ->innerJoin('q.pilot','p')
+        ->orderBy('best_lap')
+        ->groupBy('q.pilot')
+        ->setParameter('race',$race_id)
+        ->select('p.name,SUM(TIME(q.time)) as total_time, MIN(q.time) as best_lap')
+        ->getQuery()
+        ->getResult();
     }
 
     // /**
