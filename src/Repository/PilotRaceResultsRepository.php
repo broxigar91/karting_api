@@ -22,19 +22,53 @@ class PilotRaceResultsRepository extends ServiceEntityRepository
     // /**
     //  * @return PilotRaceResults[] Returns an array of PilotRaceResults objects
     //  */
-    /*
-    public function findByExampleField($value)
+    
+    public function getPilotResults($id)
     {
-        return $this->createQueryBuilder('p')
-            ->andWhere('p.exampleField = :val')
-            ->setParameter('val', $value)
-            ->orderBy('p.id', 'ASC')
-            ->setMaxResults(10)
+        return $this->createQueryBuilder('q')
+            ->innerjoin('q.race', 'r')
+            ->andWhere('q.pilot = :pilot')
+            ->setParameter('pilot', $id)
+            ->orderBy('q.race', 'ASC')
+            ->select('r.name as race,q.total_time, q.best_lap, q.points')
             ->getQuery()
             ->getResult()
         ;
     }
-    */
+
+    // /**
+    //  * @return PilotRaceResults[] Returns an array of PilotRaceResults objects
+    //  */
+    
+    public function getRaceResults($id)
+    {
+        return $this->createQueryBuilder('q')
+            ->innerjoin('q.pilot', 'p')
+            ->andWhere('q.race = :race')
+            ->setParameter('race', $id)
+            ->orderBy('q.race', 'ASC')
+            ->select('p.name as pilot,q.total_time, q.best_lap, q.points')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+
+    // /**
+    //  * @return PilotRaceResults[] Returns an array of PilotRaceResults objects
+    //  */
+    
+    public function getGeneralClassification()
+    {
+        return $this->createQueryBuilder('q')
+            ->innerjoin('q.pilot', 'p')
+            ->orderBy('points', 'DESC')
+            ->groupBy('q.pilot')
+            ->select('p.name as pilot,SEC_TO_TIME(SUM(TIME_TO_SEC(q.total_time))) as total_time, SUM(q.points) as points')
+            ->getQuery()
+            ->getResult()
+        ;
+    }
+    
 
     /*
     public function findOneBySomeField($value): ?PilotRaceResults

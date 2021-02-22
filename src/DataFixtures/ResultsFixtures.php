@@ -18,10 +18,9 @@ class ResultsFixtures extends Fixture
     {
         
         $pilotRaceLapRepository = $manager->getRepository(PilotRaceLap::class);
-        $pilotRepository = $manager->getRepository(Pilot::class);
         $raceRepository = $manager->getRepository(Race::class);
 
-        $pilots = $pilotRepository->getAll();
+        
         $races = $raceRepository->getAll();
 
         foreach($races as $r)

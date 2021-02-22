@@ -27,19 +27,4 @@ class PilotRaceLapController extends AbstractController
         $this->pilotRaceLapRepository = $pilotRaceLapRepository;
     }
 
-    /**
-     * @Route("pilot/{id}", name="get_one_pilot", methods={"GET"})
-     */
-    public function get($id): JsonResponse
-    {   
-        // $p = $this->pilotRaceLapRepository->findOneBy(["pilot" => $id]);
-        // $p = $this->pilotRaceLapRepository->getPilotBestLapInRace($id,1);
-        $p = $this->pilotRaceLapRepository->getRaceClassification(1);
-        
-        var_dump($p);
-        
-        return $this->json([
-            'best_lap' => $p
-        ]);
-    }
 }

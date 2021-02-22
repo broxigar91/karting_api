@@ -19,4 +19,6 @@ doctrine:
         dql:
             datetime_functions:
                 time: DoctrineExtensions\Query\Mysql\Time
+                time_to_sec: DoctrineExtensions\Query\Mysql\TimeToSec
+                sec_to_time: DoctrineExtensions\Query\Mysql\SecToTime
 
