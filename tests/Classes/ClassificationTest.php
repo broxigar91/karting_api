@@ -17,7 +17,7 @@ class ClassificationTest extends TestCase
             [
                 "pilot" => "hony",
                 "total_time" => "10375.026000",
-                "best_lap" => "00:08:01.814"
+                "best_lap" => "00:08:03.814"
             ],
             [
                 "pilot" => "antonio",
@@ -31,7 +31,8 @@ class ClassificationTest extends TestCase
         $results = $col->getResults();
 
         $this->assertEquals("hony", $results[0]->getPilot());
-        $this->assertEquals("26", $results[0]->getPoints());
+        $this->assertNotEquals("26", $results[0]->getPoints());
+        $this->assertEquals("25", $results[0]->getPoints());
         
     }
 }
