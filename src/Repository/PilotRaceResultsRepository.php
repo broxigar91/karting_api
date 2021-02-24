@@ -46,7 +46,7 @@ class PilotRaceResultsRepository extends ServiceEntityRepository
             ->innerjoin('q.pilot', 'p')
             ->andWhere('q.race = :race')
             ->setParameter('race', $id)
-            ->orderBy('q.race', 'ASC')
+            ->orderBy('q.points', 'DESC')
             ->select('p.name as pilot,q.total_time, q.best_lap, q.points')
             ->getQuery()
             ->getResult()
