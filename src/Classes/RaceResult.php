@@ -54,16 +54,6 @@ class RaceResult
         return $this->time;
     }
 
-    public function toArray()
-    {
-        return [
-            'pilot' => $this->pilot,
-            'total_time' => $this->time,
-            'best_lap'  =>  $this->bestLap,
-            'points' => $this->points
-        ];
-    }
-
     public function addPoints($pts)
     {
         $this->points += $pts;

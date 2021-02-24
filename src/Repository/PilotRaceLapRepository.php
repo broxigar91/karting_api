@@ -19,31 +19,6 @@ class PilotRaceLapRepository extends ServiceEntityRepository
         parent::__construct($registry, PilotRaceLap::class);
     }
 
-    public function getPilotBestLapInRace($pilot_id, $race_id)
-    {
-        return $this->createQueryBuilder('p')
-        ->andWhere('p.pilot = :pilot')
-        ->andWhere('p.race = :race')
-        ->setParameter('pilot',$pilot_id)
-        ->setParameter('race',$race_id)
-        ->select('MIN(p.time) as best_lap')
-        ->getQuery()
-        ->getSingleScalarResult();
-    }
-
-    public function getPilotTotalTimeInRace($pilot_id,$race_id)
-    {
-        return $this->createQueryBuilder('p')
-        ->andWhere('p.pilot = :pilot')
-        ->andWhere('p.race = :race')
-        ->setParameter('pilot',$pilot_id)
-        ->setParameter('race',$race_id)
-        ->select('SECTOTIME(SUM(TIMETOSEC(q.time))) as total_time')
-        ->getQuery()
-        ->getSingleScalarResult();
-    }
-
-
     public function getRaceClassification($race_id)
     {
         return $this->createQueryBuilder('q')

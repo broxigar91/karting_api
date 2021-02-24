@@ -3,13 +3,11 @@
 namespace App\DataFixtures;
 
 use App\Classes\Classification;
-use App\Classes\RaceResult;
 use App\Entity\Pilot;
 use App\Entity\PilotRaceLap;
 use App\Entity\PilotRaceResults;
 use App\Entity\Race;
 use Doctrine\Bundle\FixturesBundle\Fixture;
-use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Persistence\ObjectManager;
 
 class ResultsFixtures extends Fixture
