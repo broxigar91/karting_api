@@ -12,6 +12,11 @@ In order to get this project running you need to execute some commands first:
 
 Current env configuration is prepared to run with MySQL 5.7.
 
+The enpoints are the following:
+- `api/race/{id}` to check the classification to this race in particular, with id being a value from 1 to 10.  
+- `api/pilot/{id}` to check the information about the pilot in particular, with id being a value equal to the field `_id` in the json file provided.  
+- `api/classification` to check the general classification.  
+
 I've deployed the api to a server, and endpoints can be checked though:  
 
 https://karting-api-devaway2021.herokuapp.com/api/race/1  
