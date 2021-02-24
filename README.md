@@ -51,7 +51,7 @@ https://karting-api-devaway2021.herokuapp.com/api/pilot/5fd7dbd8425291733653f7a1
 
 Also, I've made some tests that can be checked at `src/tests/`. In order to run them you'll need to execute  
 `php bin/phpunit`  
-which, when 1st executed it will install php unit package.  
+*when 1st executed it will install php unit package.*  
 
 PS: Even though the tech test was changed, I had already started it when the change happened, so I decided to finish it aswell.  
 You can find the code at `src/Classes/TaskManager.php`.  
