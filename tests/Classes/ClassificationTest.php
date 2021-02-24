@@ -16,13 +16,23 @@ class ClassificationTest extends TestCase
         $data = [
             [
                 "pilot" => "hony",
-                "total_time" => "10375.026000",
+                "total_time" => "10:00:45",
                 "best_lap" => "00:08:03.814"
             ],
             [
                 "pilot" => "antonio",
-                "total_time" => "10403.209000",
+                "total_time" => "10:02:45",
                 "best_lap" => "00:08:02.180"
+            ],
+            [
+                "pilot" => "nuertt",
+                "total_time" => "10:03:44",
+                "best_lap" => "00:08:06.780"
+            ],
+            [
+                "pilot" => "joseph joestar",
+                "total_time" => "10:03:54",
+                "best_lap" => "00:07:02.180"
             ],
         ];
 
@@ -33,6 +43,9 @@ class ClassificationTest extends TestCase
         $this->assertEquals("hony", $results[0]->getPilot());
         $this->assertNotEquals("26", $results[0]->getPoints());
         $this->assertEquals("25", $results[0]->getPoints());
+        $this->assertEquals("joseph joestar", $results[3]->getPilot());
+        $this->assertNotEquals("12", $results[3]->getPoints());
+        $this->assertEquals("13", $results[3]->getPoints());
         
     }
 }
