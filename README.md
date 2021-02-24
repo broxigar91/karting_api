@@ -15,7 +15,7 @@ Current env configuration is prepared to run with MySQL 5.7.
 I've deployed the api to a server, and endpoints can be checked though:  
 
 https://karting-api-devaway2021.herokuapp.com/api/race/1  
-https://karting-api-devaway2021.herokuapp.com/api/classification
+https://karting-api-devaway2021.herokuapp.com/api/classification  
 https://karting-api-devaway2021.herokuapp.com/api/pilot/5fd7dbd8425291733653f7a1
 
 PS: Even though the tech test was changed, I had already started it when the change happened, so I decided to finish it aswell.  
