@@ -63,7 +63,7 @@ class PilotRaceResultsRepository extends ServiceEntityRepository
             ->innerjoin('q.pilot', 'p')
             ->orderBy('points', 'DESC')
             ->groupBy('q.pilot')
-            ->select('p.name as pilot,SEC_TO_TIME(SUM(TIME_TO_SEC(q.total_time))) as total_time, SUM(q.points) as points')
+            ->select('p.id as pilot_id,p.name as pilot,SEC_TO_TIME(SUM(TIME_TO_SEC(q.total_time))) as total_time, SUM(q.points) as points')
             ->getQuery()
             ->getResult()
         ;
