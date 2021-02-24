@@ -4,11 +4,11 @@ This project is an API to deliver some information about some Karting competitio
 
 In order to get this project running you need to execute some commands first:
 
-1. Install composer: composer install
-2. Create database with: php bin/console doctrine:database:create
-3. Execute the migrations: php bin/console doctrine:migrations:migrate
-4. Load data with: php bin/console doctrine:fixtures:load
-5. Start the server: symfony server:start
+1. Install composer: `composer install`
+2. Create database with: `php bin/console doctrine:database:create`
+3. Execute the migrations: `php bin/console doctrine:migrations:migrate`
+4. Load data with: `php bin/console doctrine:fixtures:load`
+5. Start the server: `symfony server:start`
 
 Current env configuration is prepared to run with MySQL 5.7.
 
