@@ -12,7 +12,7 @@ In order to get this project running you need to execute some commands first:
 
 Current env configuration is prepared to run with MySQL 5.7.
 
-PS: Even though the tech test was changed, I've had already started when the change happened, so I decided to finish it aswell. 
-You can find the code at "src/Classes/TaskManager.php".
-Also, I've prepared some test for this second test, you can see the cases prepared for the test in "src/test/Classes/TaskManagerTest.php" run it with 
-php bin/phpunit tests/Classes/TaskManagerTest.php 
+PS: Even though the tech test was changed, I've had already started when the change happened, so I decided to finish it aswell.  
+You can find the code at `src/Classes/TaskManager.php`.
+Also, I've prepared some test for this second test, you can see the cases prepared for the test in `src/test/Classes/TaskManagerTest.php` run it with 
+`php bin/phpunit tests/Classes/TaskManagerTest.php` 
